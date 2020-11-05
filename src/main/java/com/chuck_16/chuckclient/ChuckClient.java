@@ -19,10 +19,10 @@ import org.apache.logging.log4j.Logger;
 import java.util.stream.Collectors;
 
 
-@Mod("examplemod")
+@Mod("chuckclient")
 public class ChuckClient
 {
-
+    public String MOD_ID = "chuckclient";
     private static final Logger LOGGER = LogManager.getLogger();
 
     public ChuckClient() {
@@ -46,7 +46,7 @@ public class ChuckClient
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
-        InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+        InterModComms.sendTo(MOD_ID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
     }
 
     private void processIMC(final InterModProcessEvent event)
